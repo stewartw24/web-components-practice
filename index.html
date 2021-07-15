@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,15 +10,31 @@
         div {
             border: 2px solid orange;
         }
+
+        .highlight {
+            background-color: #f7d28e;
+            /* border-bottom: 2px solid blue; */
+        }
     </style>
     <script src="tooltip.js"></script>
     <script src="confirm-link.js"></script>
 </head>
+
 <body>
-    <p><ws-tooltip text="Web Components is a set of standards">Web Components</ws-tooltip> practice</p>
-    <p><ws-tooltip>Functionality can easily be re-used with</ws-tooltip> Web Components</p>
+    <p>
+        <ws-tooltip text="Web Components is a set of standards">
+            <span class="highlight">
+                Web Components
+            </span>
+        </ws-tooltip>
+        practice
+    </p>
+    <p>
+        <ws-tooltip>Functionality can easily be re-used with</ws-tooltip> Web Components
+    </p>
     <ws-tooltip></ws-tooltip>
     <div>This does not get the webcomponent styles</div>
     <a is="ws-confirm-link" href="https://www.google.com">Google</a>
 </body>
+
 </html>
