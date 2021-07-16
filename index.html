@@ -7,18 +7,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web Components</title>
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         html {
             --color-primary: #a4e6fc;
+            font-family: sans-serif;
         }
 
-        div {
+        /* div {
             border: 2px solid orange;
-        }
+        } */
 
-        ws-tooltip {
+        /* ws-tooltip {
             border: 1px solid blue;
             padding: 0.15rem;
-        }
+        } */
 
         /* .highlight {
             /* background-color: #f7d28e; */
@@ -46,7 +51,7 @@
         <ws-tooltip>Functionality can easily be re-used with</ws-tooltip> Web Components
     </p>
     <ws-tooltip></ws-tooltip>
-    <div>This does not get the webcomponent styles</div>
+    <!-- <div>This does not get the webcomponent styles</div> -->
     <a is="ws-confirm-link" href="https://www.google.com">Google</a>
 </body>
 
