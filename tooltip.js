@@ -2,6 +2,7 @@ class Tooltip extends HTMLElement {
     constructor() {
         super(); //calls the constructor of the base class.
         this._tooltipContainer;
+        this._tooltipIcon;
         this._tooltipText = 'Some dummy default tootip text if text attribute not set.';
         this.attachShadow({ mode: 'open' }); //this adds shadow dom tree
         this.shadowRoot.innerHTML = `
@@ -53,7 +54,7 @@ class Tooltip extends HTMLElement {
         if (this.hasAttribute('text')) {
             this._tooltipText = this.getAttribute('text');
         }
-        const tooltipIcon = this.shadowRoot.querySelector('span');
+        this._tooltipIcon = this.shadowRoot.querySelector('span');
         tooltipIcon.addEventListener('mouseenter', this._showTooltip.bind(this));
         tooltipIcon.addEventListener('mouseleave', this._hideTooltip.bind(this));
         this.shadowRoot.appendChild(tooltipIcon);
@@ -71,6 +72,11 @@ class Tooltip extends HTMLElement {
 
     static get oberservedAttributes(){
         return ['text'];
+    }
+
+    disconnectedCallback(){
+        this.tooltipIcon.removeEventListener('mouseenter', this._showTooltip);
+        this.tooltipIcon.removeEventListener('mouseleave', this._hideTooltip);
     }
 
     _showTooltip() {
