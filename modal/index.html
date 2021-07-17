@@ -28,7 +28,12 @@
         const modal = document.querySelector('ws-modal');
         
         confirmButton.addEventListener('click', () => {
-            modal.setAttribute('opened', '');
+            // modal.setAttribute('opened', '');
+            if(!modal.isOpen){
+                modal.open();
+            }
+            console.log('Opening....');
+            
         });
     </script>
 </body>
